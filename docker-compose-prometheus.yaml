@@ -1,6 +1,12 @@
-version: '3.8'
-
+name: resources
 services:
+  metrics-exposer:
+    build: .
+    container_name: metrics-exposer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - prometheus
   prometheus:
     image: prom/prometheus
     container_name: prometheus
